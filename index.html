@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Encryption Demo</title>
+</head>
+<body>
+    <h1>RSA Encryption and Decryption Demo</h1>
+
+    <div>
+        <button id="generateKeysButton">Generate RSA Keys</button>
+        <button id="showPublicKeyButton">Show Public Key</button>
+        <button id="showPrivateKeyButton">Show Private Key</button>
+    </div>
+
+    <div>
+        <h2>Encrypt a message</h2>
+        <textarea id="messageToEncrypt" placeholder="Enter your message here"></textarea>
+        <button id="encryptMessageButton">Encrypt</button>
+        <h3>Encrypted Message:</h3>
+        <pre id="encryptedMessage"></pre>
+    </div>
+
+    <div>
+        <h2>Decrypt a message</h2>
+        <textarea id="messageToDecrypt" placeholder="Enter the encrypted message"></textarea>
+        <button id="decryptMessageButton">Decrypt</button>
+        <h3>Decrypted Message:</h3>
+        <pre id="decryptedMessage"></pre>
+    </div>
+
+    <div>
+        <h2>Current Public Key</h2>
+        <pre id="currentPublicKey"></pre>
+    </div>
+
+    <div>
+        <h2>Current Private Key</h2>
+        <pre id="currentPrivateKey"></pre>
+    </div>
+
+    <div>
+        <h2>Enter Your Own Public and Private Keys</h2>
+        <textarea id="userPublicKey" placeholder="Enter your public key here"></textarea>
+        <textarea id="userPrivateKey" placeholder="Enter your private key here"></textarea>
+        <h3>Enter Encrypted Message to Decrypt:</h3>
+        <textarea id="encryptedMessageToDecrypt" placeholder="Enter encrypted message"></textarea>
+        <button id="decryptWithUserKeysButton">Decrypt with Your Keys</button>
+        <h3>Decrypted Message:</h3>
+        <pre id="userDecryptedMessage"></pre>
+    </div>
+
+    <script src="keyGeneration.js"></script>
+    <script src="encryption.js"></script>
+    <script src="decryption.js"></script>
+    <script src="publicKeyExport.js"></script>
+    <script src="userKeys.js"></script>
+
+</body>
+</html>
