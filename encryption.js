@@ -1,12 +1,4 @@
-document.getElementById("encryptMessageButton").addEventListener("click", async function() {
-    const message = document.getElementById("messageToEncrypt").value;
-    const publicKeyString = localStorage.getItem("publicKey");
-    
-    if (!publicKeyString) {
-        alert("Public Key not found. Please generate keys first.");
-        return;
-    }
-
+async function encryptMessage(message, publicKeyString) {
     const encoder = new TextEncoder();
     const dataBuffer = encoder.encode(message);
 
@@ -18,21 +10,14 @@ document.getElementById("encryptMessageButton").addEventListener("click", async 
         ["encrypt"]
     );
 
-    const encryptedData = await window.crypto.subtle.encrypt(
-        { name: "RSA-OAEP" },
-        publicKey,
-        dataBuffer
-    );
-
-    const encryptedMessage = arrayBufferToBase64(encryptedData);
-    document.getElementById("encryptedMessage").textContent = encryptedMessage;
-});
+    const encryptedData = await window.crypto.subtle.encrypt({ name: "RSA-OAEP" }, publicKey, dataBuffer);
+    return arrayBufferToBase64(encryptedData);
+}
 
 function base64ToArrayBuffer(base64) {
     const binaryString = atob(base64);
-    const len = binaryString.length;
-    const bytes = new Uint8Array(len);
-    for (let i = 0; i < len; i++) {
+    const bytes = new Uint8Array(binaryString.length);
+    for (let i = 0; i < binaryString.length; i++) {
         bytes[i] = binaryString.charCodeAt(i);
     }
     return bytes.buffer;

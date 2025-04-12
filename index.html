@@ -3,59 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSA Encryption Demo</title>
+    <title>Secure P2P Messaging with PeerJS</title>
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>RSA Encryption and Decryption Demo</h1>
+    <h1>Secure P2P Messaging with PeerJS</h1>
 
-    <div>
-        <button id="generateKeysButton">Generate RSA Keys</button>
-        <button id="showPublicKeyButton">Show Public Key</button>
-        <button id="showPrivateKeyButton">Show Private Key</button>
-    </div>
+    <!-- Peer Connection -->
+    <h2>Your Peer ID</h2>
+    <pre id="peerID">Generating...</pre>
 
-    <div>
-        <h2>Encrypt a message</h2>
-        <textarea id="messageToEncrypt" placeholder="Enter your message here"></textarea>
-        <button id="encryptMessageButton">Encrypt</button>
-        <h3>Encrypted Message:</h3>
-        <pre id="encryptedMessage"></pre>
-    </div>
+    <h2>Connect to Peer</h2>
+    <input type="text" id="remotePeerInput" placeholder="Enter Peer ID">
+    <button id="connectButton">Connect</button>
 
-    <div>
-        <h2>Decrypt a message</h2>
-        <textarea id="messageToDecrypt" placeholder="Enter the encrypted message"></textarea>
-        <button id="decryptMessageButton">Decrypt</button>
-        <h3>Decrypted Message:</h3>
-        <pre id="decryptedMessage"></pre>
-    </div>
+    <!-- Messaging -->
+    <h2>Send a Secure Message</h2>
+    <textarea id="messageToSend" placeholder="Type your message..."></textarea>
+    <button id="sendMessageButton">Send Message</button>
 
-    <div>
-        <h2>Current Public Key</h2>
-        <pre id="currentPublicKey"></pre>
-    </div>
+    <h2>Incoming Messages</h2>
+    <div id="incomingMessages"></div>
 
-    <div>
-        <h2>Current Private Key</h2>
-        <pre id="currentPrivateKey"></pre>
-    </div>
-
-    <div>
-        <h2>Enter Your Own Public and Private Keys</h2>
-        <textarea id="userPublicKey" placeholder="Enter your public key here"></textarea>
-        <textarea id="userPrivateKey" placeholder="Enter your private key here"></textarea>
-        <h3>Enter Encrypted Message to Decrypt:</h3>
-        <textarea id="encryptedMessageToDecrypt" placeholder="Enter encrypted message"></textarea>
-        <button id="decryptWithUserKeysButton">Decrypt with Your Keys</button>
-        <h3>Decrypted Message:</h3>
-        <pre id="userDecryptedMessage"></pre>
-    </div>
+    <h2>Debugging Log</h2>
+    <div id="logStatus" style="background:#f4f4f4; padding:10px; border:1px solid #ccc; max-height:200px; overflow-y:scroll;"></div>
 
     <script src="keyGeneration.js"></script>
     <script src="encryption.js"></script>
     <script src="decryption.js"></script>
-    <script src="publicKeyExport.js"></script>
-    <script src="userKeys.js"></script>
-
+    <script src="peerConnection.js"></script>
 </body>
 </html>
